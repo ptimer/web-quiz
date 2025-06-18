@@ -1,78 +1,145 @@
-const marketIndices: MarketIndex[] = [
+const quizzes: Quiz[] = [
   {
-    name: "NIFTY50",
-    currentValue: 17356,
-    currency: "INR",
-    percentChange: -0.31,
-  },
-  {
-    name: "NIFTYNEXT50",
-    currentValue: 56226,
-    currency: "INR",
-    percentChange: -0.31,
-  },
-  {
-    name: "NIFTYBANK",
-    currentValue: 17356,
-    currency: "INR",
-    percentChange: 2.12,
-  },
-  {
-    name: "SENSEX",
-    currentValue: 60000,
-    currency: "INR",
-    percentChange: 0.45,
+    id: 'e5c8dcb2-37e5-4c09-8cfa-28c42c43dc5b',
+    name: 'Financial Markets Basics',
   },
 ];
 
-const question1: Question = {
-  id: "1a2b3c4d-0000-1111-2222-333344445555",
-  text: "PREDICT THE TOP LOSER (for tomorrow) across these indices",
-  options: [
-    { id: "opt-1111-2222-3333-4444", value: marketIndices[0] },
-    { id: "opt-2222-3333-4444-5555", value: marketIndices[1] },
-    { id: "opt-3333-4444-5555-6666", value: marketIndices[2] },
-  ],
-  correctAnswerId: "opt-1111-2222-3333-4444",
-};
+const quizQuestions: QuizQuestions[] = [
+  {
+    quizId: 'e5c8dcb2-37e5-4c09-8cfa-28c42c43dc5b',
+    questionIds: [
+      'b11a3e23-d1d3-4ae3-81f0-56cf0c0e2fa7',
+      '305d2fc4-52f5-4c08-8e1c-b6a4f04c8d9a',
+      'c627f924-8843-4d40-9a67-f7db3e18edc6',
+      '14b301d8-e2cf-41b2-b69d-3e74edc20393',
+    ],
+  }
+];
 
-const question2: Question = {
-  id: "2b3c4d5e-1111-2222-3333-444455556666",
-  text: "Which currency is used by the indices shown?",
-  options: [
-    { id: "opt-4444-5555-6666-7777", value: "INR" },
-    { id: "opt-5555-6666-7777-8888", value: "USD" },
-    { id: "opt-6666-7777-8888-9999", value: "EUR" },
-  ],
-  correctAnswerId: "opt-4444-5555-6666-7777",
-};
-
-const question3: Question = {
-  id: "3c4d5e6f-2222-3333-4444-555566667777",
-  text: "Which index showed a positive percent change?",
-  options: [
-    { id: "opt-7777-8888-9999-0000", value: marketIndices[0] },
-    { id: "opt-8888-9999-0000-1111", value: marketIndices[2] },
-    { id: "opt-9999-0000-1111-2222", value: marketIndices[1] },
-  ],
-  correctAnswerId: "opt-8888-9999-0000-1111",
-};
-
-
-const question4: Question = {
-  id: "4d5e6f7g-3333-4444-5555-666677778888",
-  text: "What is the current value of SENSEX?",
-  options: [
-    { id: "opt-aaaa-bbbb-cccc-dddd", value: "17356" },
-    { id: "opt-bbbb-cccc-dddd-eeee", value: "60000" },
-    { id: "opt-cccc-dddd-eeee-ffff", value: "56226" },
-  ],
-  correctAnswerId: "opt-bbbb-cccc-dddd-eeee",
-};
-
-export const mockQuestions: Question[] = [
-  question1,
-  question2,
-  question3,
-  question4,
+const questions: Question[] = [
+  {
+    id: 'b11a3e23-d1d3-4ae3-81f0-56cf0c0e2fa7',
+    text: 'Which of the following is a major U.S. stock market index?',
+    options: [
+      {
+        id: 'e1d410de-bcd7-4db6-bf18-d548f1c5a3ec',
+        data: { variant: 'text', text: 'Nifty 50' },
+      },
+      {
+        id: 'e16db91f-e4b9-42ad-b6f4-c0c9c92ff0c2',
+        data: {
+          variant: 'marketIndex',
+          name: 'S&P 500',
+          currentValue: 5290.12,
+          currency: 'USD',
+          percentChange: 0.54,
+        },
+      },
+      {
+        id: '1e39f179-3833-4c51-8d02-5f5a6f6e190f',
+        data: { variant: 'text', text: 'FTSE 100' },
+      },
+    ],
+    correctAnswerId: 'e16db91f-e4b9-42ad-b6f4-c0c9c92ff0c2',
+  },
+  {
+    id: '305d2fc4-52f5-4c08-8e1c-b6a4f04c8d9a',
+    text: 'Which index represents the Indian stock market?',
+    options: [
+      {
+        id: '3f9649a4-c23e-4ea8-88cf-e2a7bcfb15c4',
+        data: {
+          variant: 'marketIndex',
+          name: 'Nifty 50',
+          currentValue: 22410.65,
+          currency: 'INR',
+          percentChange: 0.28,
+        },
+      },
+      {
+        id: '8f6d60d6-19ab-4be4-a318-cb8f91262f5c',
+        data: {
+          variant: 'marketIndex',
+          name: 'DAX',
+          currentValue: 18023.95,
+          currency: 'EUR',
+          percentChange: -0.12,
+        },
+      },
+      {
+        id: '4e1e5892-f1cf-4429-b8e8-9c8991f08491',
+        data: { variant: 'text', text: 'Dow Jones' },
+      },
+    ],
+    correctAnswerId: '3f9649a4-c23e-4ea8-88cf-e2a7bcfb15c4',
+  },
+  {
+    id: 'c627f924-8843-4d40-9a67-f7db3e18edc6',
+    text: 'Which of these is a European index?',
+    options: [
+      {
+        id: '19e3a0d7-e1f9-4c73-9506-5f4b771a34b0',
+        data: {
+          variant: 'marketIndex',
+          name: 'CAC 40',
+          currentValue: 7565.1,
+          currency: 'EUR',
+          percentChange: 0.32,
+        },
+      },
+      {
+        id: '41d78d9a-9fa2-460f-89c2-bbcaa7cfa99c',
+        data: { variant: 'text', text: 'Nikkei 225' },
+      },
+      {
+        id: 'cf40ec59-dad0-4ae9-8499-2b02e78bd1c9',
+        data: {
+          variant: 'marketIndex',
+          name: 'BSE Sensex',
+          currentValue: 74235.9,
+          currency: 'INR',
+          percentChange: 0.42,
+        },
+      },
+    ],
+    correctAnswerId: '19e3a0d7-e1f9-4c73-9506-5f4b771a34b0',
+  },
+  {
+    id: '14b301d8-e2cf-41b2-b69d-3e74edc20393',
+    text: 'Which market index had a negative change today?',
+    options: [
+      {
+        id: '05b9f34b-67a3-423b-859e-4c8e85929848',
+        data: {
+          variant: 'marketIndex',
+          name: 'FTSE 100',
+          currentValue: 7640.2,
+          currency: 'GBP',
+          percentChange: 0.15,
+        },
+      },
+      {
+        id: 'ea8bb1dc-5938-4f71-b116-9f6a41e26be2',
+        data: {
+          variant: 'marketIndex',
+          name: 'DAX',
+          currentValue: 18023.95,
+          currency: 'EUR',
+          percentChange: -0.12,
+        },
+      },
+      {
+        id: 'bd1d9c86-9390-4a7f-83f9-df9794ec7b9c',
+        data: {
+          variant: 'marketIndex',
+          name: 'NASDAQ',
+          currentValue: 13788.22,
+          currency: 'USD',
+          percentChange: 1.02,
+        },
+      },
+    ],
+    correctAnswerId: 'ea8bb1dc-5938-4f71-b116-9f6a41e26be2',
+  },
 ];

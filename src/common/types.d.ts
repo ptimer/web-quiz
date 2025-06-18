@@ -1,20 +1,54 @@
+type Currency = 'INR' | 'USD' | 'EUR' | 'GBP';
+
 interface MarketIndex {
   name: string;
   currentValue: number;
-  currency: 'INR';         
-  percentChange: number;       
+  currency: Currency;         
+  percentChange: number;
+}
+
+interface Quiz {
+  id: string;
+  name: string;
+}
+
+interface QuizQuestions {
+  quizId: string;
+  questionIds: string[];
 }
 
 interface Option<T> {
  id: string;
- value?: T;
+ data: T;
 }
 
-type OptionValue = MarketIndex | string;
+type OptionVariant = 'marketIndex' | 'text';
 
-interface Question {
+interface BaseOptionData {
+  variant: OptionVariant;
+}
+
+interface TextOptionData extends BaseOptionData {
+  variant: 'text';
+  text: string;
+}
+
+interface MarketIndexOptionData extends BaseOptionData, MarketIndex  {
+  variant: 'marketIndex';
+}
+
+type OptionData = MarketIndexOptionData | TextOptionData;
+
+interface Question<T = OptionData> {
  id: string;
  text: string;
- options: Option<OptionValue>[];
- correctAnswerId: Option<OptionValue>['id'];
+ options: Option<T>[];
+ correctAnswerId: string;
 }
+
+
+
+
+
+
+
