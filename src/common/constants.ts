@@ -1,11 +1,11 @@
-const quizzes: Quiz[] = [
+export const mockQuizzes: Quiz[] = [
   {
     id: 'e5c8dcb2-37e5-4c09-8cfa-28c42c43dc5b',
     name: 'Financial Markets Basics',
   },
 ];
 
-const quizQuestions: QuizQuestions[] = [
+export const mockQuizQuestions: QuizQuestions[] = [
   {
     quizId: 'e5c8dcb2-37e5-4c09-8cfa-28c42c43dc5b',
     questionIds: [
@@ -17,7 +17,7 @@ const quizQuestions: QuizQuestions[] = [
   }
 ];
 
-const questions: Question[] = [
+export const mockQuestions: Question[] = [
   {
     id: 'b11a3e23-d1d3-4ae3-81f0-56cf0c0e2fa7',
     text: 'Which of the following is a major U.S. stock market index?',
