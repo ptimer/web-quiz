@@ -1,9 +1,19 @@
+import { Quiz } from '@/components'
+
+import { useGetQuizzesQuery } from './store/features/apiSlice'
+
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline text-red-50">Hello world!</h1>
-    </>
-  )
+  const { data: quizzes = [], isLoading, isError, error } = useGetQuizzesQuery()
+
+  if (isLoading) return <div>Loading...</div>
+
+  if (isError) return <div>{String(error)}</div>
+
+  const firstQuiz = quizzes[0]
+
+  if (!quizzes.length || !firstQuiz) return <div>No quizzes found</div>
+
+  return <Quiz {...firstQuiz} />
 }
 
 export default App

@@ -17,16 +17,16 @@ interface QuizQuestions {
   questionIds: string[]
 }
 
-interface Option<T> {
+interface Option {
   id: string
-  data: T
+  data: OptionData
 }
-
-type OptionVariant = 'marketIndex' | 'text'
 
 interface BaseOptionData {
   variant: OptionVariant
 }
+
+type OptionVariant = 'text' | 'marketIndex'
 
 interface TextOptionData extends BaseOptionData {
   variant: 'text'
@@ -39,9 +39,9 @@ interface MarketIndexOptionData extends BaseOptionData, MarketIndex {
 
 type OptionData = MarketIndexOptionData | TextOptionData
 
-interface Question<T = OptionData> {
+interface Question {
   id: string
   text: string
-  options: Option<T>[]
+  options: Option[]
   correctAnswerId: string
 }
