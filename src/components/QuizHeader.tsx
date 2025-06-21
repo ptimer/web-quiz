@@ -12,9 +12,11 @@ export const QuizHeader = ({ score, title, handleCloseClick, className }: Props)
   return (
     <div className={cn('flex justify-between items-center', className)}>
       <ScoreBadge score={score} />
-      <h3 className="text-typo-heading-03 text-black font-semibold">{title}</h3>
+      <h3 className="text-typo-heading-03 lg:text-[1.5rem] lg:leading-24 text-black font-semibold">
+        {title}
+      </h3>
       <IconBox onClick={handleCloseClick}>
-        <CloseIcon className="h-12 w-12" />
+        <CloseIcon className="h-12 w-12 lg:w-17 lg:h-17" />
       </IconBox>
     </div>
   )

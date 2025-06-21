@@ -1,6 +1,6 @@
 import { QUIZ_SCORE_MULTIPLIER } from '@/common/constants'
 import { cn } from '@/common/utils'
-import { Button, ProgressBar, Question, QuizHeader, Result } from '@/components'
+import { Button, ProgressBar, Question, QuizHeader, QuizResult } from '@/components'
 import {
   useGetQuestionIdsByQuizIdQuery,
   useGetQuestionsByIdsQuery
@@ -106,17 +106,17 @@ export const Quiz = ({ id, name }: Quiz) => {
 
   return (
     <div className="min-h-screen flex flex-col w-full">
-      <div className="flex flex-col gap-24 mt-40 mb-40 px-20">
+      <div className="flex flex-col gap-24 my-40 lg:mb-90 px-20 lg:px-60">
         <QuizHeader score={score} title={name} handleCloseClick={() => {}} />
         <div className="lg:hidden">{progressBar}</div>
       </div>
 
-      <main className="flex flex-col px-20 mb-147">
+      <main className="flex flex-col px-20 lg:px-60 mb-147 lg:mb-60">
         {composeStatus()}
 
         {showQuestion && <Question {...question} />}
 
-        {isFinished && <Result quizName={name} score={score} />}
+        {isFinished && <QuizResult quizName={name} score={score} />}
       </main>
 
       {composeQuizFooter()}
