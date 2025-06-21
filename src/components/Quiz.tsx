@@ -92,7 +92,7 @@ export const Quiz = ({ id, name }: Quiz) => {
   )
 
   const composeQuizFooter = () => (
-    <div className="mt-147 flex justify-center w-full lg:bg-light lg:py-20 pb-58 lg:fixed lg:bottom-0 lg:left-0 lg:right-0">
+    <footer className="mt-auto flex justify-center w-full lg:bg-light lg:py-20 pb-58">
       <div
         className={cn('flex justify-center w-full lg:max-w-790 lg:justify-between', {
           'lg:justify-center': isFinished
@@ -101,21 +101,23 @@ export const Quiz = ({ id, name }: Quiz) => {
         {!isFinished && <div className="hidden lg:flex lg:w-240">{progressBar}</div>}
         {button}
       </div>
-    </div>
+    </footer>
   )
 
   return (
-    <div className="min-h-screen flex flex-col w-full px-20 pt-40">
-      <div className="flex flex-col gap-24 mb-40">
+    <div className="min-h-screen flex flex-col w-full">
+      <div className="flex flex-col gap-24 mt-40 mb-40 px-20">
         <QuizHeader score={score} title={name} handleCloseClick={() => {}} />
         <div className="lg:hidden">{progressBar}</div>
       </div>
 
-      {composeStatus()}
+      <main className="flex flex-col px-20 mb-147">
+        {composeStatus()}
 
-      {showQuestion && <Question {...question} />}
+        {showQuestion && <Question {...question} />}
 
-      {isFinished && <Result quizName={name} score={score} />}
+        {isFinished && <Result quizName={name} score={score} />}
+      </main>
 
       {composeQuizFooter()}
     </div>
