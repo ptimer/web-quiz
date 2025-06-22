@@ -1,6 +1,7 @@
 import { QUIZ_SCORE_MULTIPLIER } from '@/common/constants'
 import { CheckIcon } from './icons'
 import { IconBox } from './ui'
+import { QuizForm } from './QuizForm'
 
 interface Props {
   quizName: string
@@ -45,6 +46,8 @@ export const QuizResult = ({ quizName, score }: Props) => {
           <span className="font-semibold ml-auto">{correctAnswersCount}</span>
         </div>
       </div>
+
+      <QuizForm />
     </div>
   )
 }
