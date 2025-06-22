@@ -1,24 +1,14 @@
 import { IconBox } from '@/components/ui/IconBox'
 import { cn, formatCurrency, isNumberNegative } from '@/common/utils'
 import { CheckIcon } from '@/components/icons/CheckIcon'
-import { selectedAnswerIdSelector, setSelectedAnswerId } from '@/store/features/quizSlice'
-import { useDispatch, useSelector } from 'react-redux'
 
 interface Props extends Option {
   label: string
+  selected: boolean
+  onClick: (id: string) => void
 }
 
-export const Option = ({ id, data, label }: Props) => {
-  const dispatch = useDispatch()
-
-  const selectedAnswerId = useSelector(selectedAnswerIdSelector)
-
-  const selected = selectedAnswerId === id
-
-  const handleSelect = () => {
-    dispatch(setSelectedAnswerId(id))
-  }
-
+export const Option = ({ id, data, label, onClick, selected }: Props) => {
   const composeText = () => {
     let text: React.ReactNode = null
 
@@ -81,7 +71,7 @@ export const Option = ({ id, data, label }: Props) => {
           'bg-success-light': selected
         }
       )}
-      onClick={handleSelect}
+      onClick={() => onClick(id)}
     >
       {composeIcon()}
       {composeText()}

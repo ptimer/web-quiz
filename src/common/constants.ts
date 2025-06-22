@@ -1,1 +1,1 @@
-export const QUIZ_SCORE_MULTIPLIER = 20
+export const QUIZ_BASE_SCORE = 20

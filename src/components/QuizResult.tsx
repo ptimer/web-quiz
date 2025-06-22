@@ -1,15 +1,17 @@
-import { QUIZ_SCORE_MULTIPLIER } from '@/common/constants'
+import { QUIZ_BASE_SCORE } from '@/common/constants'
 import { CheckIcon } from './icons'
-import { IconBox } from './ui'
-import { QuizForm } from './QuizForm'
+import { Button, IconBox } from './ui'
+// import { QuizForm } from './QuizForm'
+import { useSelector } from 'react-redux'
+import { scoreSelector } from '@/store/features/quizSlice'
 
 interface Props {
   quizName: string
-  score: number
 }
 
-export const QuizResult = ({ quizName, score }: Props) => {
-  const correctAnswersCount = score !== 0 ? score / QUIZ_SCORE_MULTIPLIER : 0
+export const QuizResult = ({ quizName }: Props) => {
+  const score = useSelector(scoreSelector)
+  const correctAnswersCount = score !== 0 ? score / QUIZ_BASE_SCORE : 0
 
   return (
     <div className="flex flex-col items-center">
@@ -47,7 +49,10 @@ export const QuizResult = ({ quizName, score }: Props) => {
         </div>
       </div>
 
-      <QuizForm />
+      {/* <QuizForm /> */}
+      <footer className="mt-auto flex justify-center w-full lg:py-20 pb-58">
+        <Button>FINISH</Button>
+      </footer>
     </div>
   )
 }
