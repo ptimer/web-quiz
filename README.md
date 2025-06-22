@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# Web Quiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application is a web-based quiz where users can answer questions and get their results.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   Take a quiz with single or multiple choice questions.
+*   Display correct and incorrect answers.
+*   Score calculation and display of the final result.
+*   Responsive design for a comfortable experience on different devices.
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **Framework:** [React](https://react.dev/)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Bundler:** [Vite](https://vitejs.dev/)
+*   **State Management:** [Redux Toolkit](https://redux-toolkit.js.org/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Form Handling:** [React Hook Form](https://react-hook-form.com/)
+*   **Mock Server:** [json-server](https://github.com/typicode/json-server)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🏁 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*   [Node.js](https://nodejs.org/en/) (v18.x or higher)
+*   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/web-quiz.git
+    cd web-quiz
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running Locally
+
+To run the application, you need to start two processes: the development server and the mock server.
+
+1.  **Start the mock server**
+
+    Open a terminal and run the command:
+    ```bash
+    npm run server
+    ```
+    The server will be available at `http://localhost:3000`.
+
+    > **Note:** If port 3000 is occupied, the server will not start as it does not automatically find a free port. In this case, change the value of the `--port` flag in the `server` command in the `package.json` file.
+
+2.  **Start the development server**
+
+    Open a second terminal and run the command:
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173` (or another port specified in the console).
+
+## 📜 Available Scripts
+
+*   `npm run dev`: Starts the development server.
+*   `npm run server`: Starts the mock server with data from `mock-server/db.json` on port 3000.
+*   `npm run build`: Builds the application for production.
+*   `npm run lint`: Lints the code using ESLint.
+*   `npm run lint:fix`: Fixes ESLint errors automatically.
+*   `npm run preview`: Previews the production build.
