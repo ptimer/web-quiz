@@ -1,6 +1,5 @@
-import { IconBox } from '@/components/ui/IconBox'
 import { cn, formatCurrency, isNumberNegative } from '@/common/utils'
-import { CheckIcon } from '@/components/icons/CheckIcon'
+import { IconBox, CheckIcon } from '@/components'
 
 interface Props extends Option {
   label: string
@@ -8,7 +7,7 @@ interface Props extends Option {
   onClick: (id: string) => void
 }
 
-export const Option = ({ id, data, label, onClick, selected }: Props) => {
+export const QuizOption = ({ id, data, label, onClick, selected }: Props) => {
   const composeText = () => {
     let text: React.ReactNode = null
 

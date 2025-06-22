@@ -1,12 +1,13 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import { getOptionLabel } from '@/common/utils'
-import { Button, Option, ProgressBar } from '@/components'
+import { Button, QuizOption, ProgressBar } from '@/components'
 import {
   useGetQuestionIdsByQuizIdQuery,
   useGetQuestionsByIdsQuery
 } from '@/store/features/apiSlice'
 import { increaseScore, setIsFinished } from '@/store/features/quizSlice'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 
 export const QuizQuestions = ({ quizId }: { quizId: string }) => {
   const dispatch = useDispatch()
@@ -68,26 +69,28 @@ export const QuizQuestions = ({ quizId }: { quizId: string }) => {
   }
 
   return failed ? (
-    <div className="flex flex-col items-center justify-center">{failed}</div>
+    <div className="flex flex-col flex-1 items-center justify-center">{failed}</div>
   ) : (
-    <div className="flex flex-col items-center gap-64 lg:gap-80">
-      <ProgressBar {...{ currentStep, totalSteps }} className="lg:hidden" />
-      <h1 className="text-typo-heading-02 lg:text-typo-heading-01 leading-30 text-primary font-semibold text-center">
-        {question.text}
-      </h1>
-      <div className="flex flex-col items-center gap-30 w-full">
-        {question.options.map((option, idx) => (
-          <Option
-            key={option.id}
-            label={getOptionLabel(idx)}
-            {...option}
-            onClick={handleClickOption}
-            selected={selectedOptionId === option.id}
-          />
-        ))}
+    <div className="flex flex-col flex-1 items-center">
+      <div className="flex flex-col items-center px-20 lg:px-60 mb-147 lg:mb-60">
+        <ProgressBar {...{ currentStep, totalSteps }} className="lg:hidden mb-40 lg:mb-0" />
+        <h1 className="mb-64 lg:mb-80 text-typo-heading-02 lg:text-typo-heading-01 leading-30 text-primary font-semibold text-center">
+          {question.text}
+        </h1>
+        <div className="flex flex-col items-center gap-30 w-full">
+          {question.options.map((option, idx) => (
+            <QuizOption
+              key={option.id}
+              label={getOptionLabel(idx)}
+              {...option}
+              onClick={handleClickOption}
+              selected={selectedOptionId === option.id}
+            />
+          ))}
+        </div>
       </div>
-      <footer className="mt-auto flex justify-center w-full lg:bg-light lg:py-20 pb-58">
-        <div className={'flex justify-center w-full lg:max-w-790 lg:justify-between'}>
+      <footer className="mt-auto flex justify-center w-full lg:bg-light lg:py-20 mb-58 lg:mb-0">
+        <div className={'flex justify-center w-full lg:max-w-690 lg:justify-between'}>
           <ProgressBar {...{ currentStep, totalSteps }} className="hidden lg:flex lg:w-240" />
           <Button disabled={!selectedOptionId} onClick={handleNext}>
             {isLastQuestion ? 'FINISH' : 'CONTINUE'}

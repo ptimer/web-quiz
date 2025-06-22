@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { apiSlice } from './features/apiSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
+
 import quizSliceReducer from './features/quizSlice'
+import { apiSlice } from './features/apiSlice'
 
 export const store = configureStore({
   reducer: {

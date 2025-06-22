@@ -1,8 +1,10 @@
 export * from './icons'
 export * from './ui'
+
 export * from './Quiz'
 export * from './QuizHeader'
+export * from './QuizScoreBadge'
 export * from './QuizQuestions'
-export * from './Option'
+export * from './QuizOption'
 export * from './QuizResult'
-// export * from './QuizForm'
+export * from './QuizStats'
