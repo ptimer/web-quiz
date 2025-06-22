@@ -13,7 +13,7 @@ export const QuizResult = ({ quizName }: Props) => {
   const correctAnswersCount = score !== 0 ? score / QUIZ_BASE_SCORE : 0
 
   return (
-    <div className="flex flex-col items-center flex-1">
+    <div className="flex flex-col items-center flex-1 px-20 lg:px-60">
       <img
         src="images/gift-box.svg"
         className="w-144 lg:w-200 mb-40"
@@ -22,15 +22,16 @@ export const QuizResult = ({ quizName }: Props) => {
         alt="Gift box picture"
       />
 
-      <h1 className="text-typo-heading-02 lg:text-typo-heading-02 lg:leading-38 leading-28 font-semibold text-primary mb-58">
+      <h1 className="text-typo-heading-02 lg:text-typo-heading-01 leading-28 lg:leading-38 font-semibold text-primary mb-58 lg:mb-70">
         Results of {quizName}
       </h1>
 
       <QuizStats score={score} correctAnswersCount={correctAnswersCount} />
 
       <div className="mb-147"></div>
-      <footer className="mt-auto flex justify-center w-full lg:py-20 mb-58">
-        <Button>FINISH</Button>
+
+      <footer className="mt-auto flex justify-center w-full mb-58">
+        <Button>OKAY</Button>
       </footer>
     </div>
   )

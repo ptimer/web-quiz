@@ -18,7 +18,7 @@ export const QuizOption = ({ id, data, label, onClick, selected }: Props) => {
       case 'marketIndex':
         text = (
           <>
-            <span className="font-semibold mr-12 lg:mr-20">{data.name}</span>
+            <span className="font-semibold mr-12 lg:mr-21">{data.name}</span>
             <span>{formatCurrency(data.currency, data.currentValue)}</span>
 
             <span
@@ -39,7 +39,7 @@ export const QuizOption = ({ id, data, label, onClick, selected }: Props) => {
 
     return (
       <div
-        className={cn('text-typo-body-01 lg:text-[1.25rem] lg:leading-27 leading-20 text-dark', {
+        className={cn('text-typo-body-01 leading-20 lg:text-[1.25rem] lg:leading-27 text-dark', {
           'text-light': selected
         })}
       >
@@ -52,7 +52,7 @@ export const QuizOption = ({ id, data, label, onClick, selected }: Props) => {
     return (
       <IconBox className={cn('bg-background', { 'bg-light': selected })}>
         {selected ? (
-          <CheckIcon className="w-14 h-10 lg:w-16 lg:h-12" />
+          <CheckIcon className="w-14 h-10 lg:w-16 lg:h-12 [&_path]:fill-success" />
         ) : (
           <span className="text-typo-body-01 lg:text-[1.375rem] text-dark font-semibold">
             {label}
@@ -65,7 +65,7 @@ export const QuizOption = ({ id, data, label, onClick, selected }: Props) => {
   return (
     <div
       className={cn(
-        'flex items-center bg-light rounded-[0.5rem] w-full max-w-510 px-16 lg:px-24 py-12 lg:py-16 gap-16 lg:gap-30 cursor-pointer',
+        'flex items-center bg-light rounded-[0.5rem] w-full lg:w-510 px-16 lg:px-24 py-12 lg:py-16 gap-16 lg:gap-30 cursor-pointer',
         {
           'bg-success-light': selected
         }

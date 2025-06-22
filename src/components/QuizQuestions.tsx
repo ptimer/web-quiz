@@ -73,8 +73,8 @@ export const QuizQuestions = ({ quizId }: { quizId: string }) => {
   ) : (
     <div className="flex flex-col flex-1 items-center">
       <div className="flex flex-col items-center px-20 lg:px-60 mb-147 lg:mb-60">
-        <ProgressBar {...{ currentStep, totalSteps }} className="lg:hidden mb-40 lg:mb-0" />
-        <h1 className="mb-64 lg:mb-80 text-typo-heading-02 lg:text-typo-heading-01 leading-30 text-primary font-semibold text-center">
+        <ProgressBar {...{ currentStep, totalSteps }} className="mb-40 lg:mb-0 lg:hidden" />
+        <h1 className="mb-64 lg:mb-80 text-typo-heading-02 leading-30 lg:text-typo-heading-01  text-primary font-semibold text-center">
           {question.text}
         </h1>
         <div className="flex flex-col items-center gap-30 w-full">

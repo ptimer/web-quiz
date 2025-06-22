@@ -28,7 +28,7 @@ export const QuizHeader = ({ title, handleCloseClick }: Props) => {
     <header className={cn('flex justify-between items-center', { 'justify-end': isFinished })}>
       {composeFinishStep()}
       <IconBox onClick={handleCloseClick}>
-        <CloseIcon className="h-12 w-12 lg:w-17 lg:h-17" />
+        <CloseIcon className="h-12 w-12 lg:w-17 lg:h-17 [&_path]:fill-black" />
       </IconBox>
     </header>
   )
