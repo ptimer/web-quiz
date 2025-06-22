@@ -1,13 +1,19 @@
+import { cn } from '@/common/utils'
 import { CheckIcon, IconBox } from '@/components'
 
-interface Props {
+interface Props extends React.ComponentProps<'div'> {
   score: number
   correctAnswersCount: number
 }
 
-export const QuizStats = ({ score, correctAnswersCount }: Props) => {
+export const QuizStats = ({ score, correctAnswersCount, className }: Props) => {
   return (
-    <div className="rounded-[0.5rem] bg-light text-typo-body-01 leading-20 lg:text-[1.25rem] lg:leading-27 text-dark w-full lg:w-510">
+    <div
+      className={cn(
+        'rounded-[0.5rem] bg-light text-typo-body-01 leading-20 lg:text-[1.25rem] lg:leading-27 text-dark w-full lg:w-510',
+        className
+      )}
+    >
       <div className="flex items-center py-18 lg:py-24 px-16 lg:px-24">
         <IconBox className="bg-background mr-16 lg:mr-30">
           <img

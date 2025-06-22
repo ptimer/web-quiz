@@ -7,7 +7,7 @@ interface Props extends React.ComponentProps<'div'> {
   title: string
   handleCloseClick?: () => void
 }
-export const QuizHeader = ({ title, handleCloseClick }: Props) => {
+export const QuizHeader = ({ title, handleCloseClick, className }: Props) => {
   const score = useSelector(scoreSelector)
   const isFinished = useSelector(isFinishedSelector)
 
@@ -25,7 +25,9 @@ export const QuizHeader = ({ title, handleCloseClick }: Props) => {
   }
 
   return (
-    <header className={cn('flex justify-between items-center', { 'justify-end': isFinished })}>
+    <header
+      className={cn('flex justify-between items-center', { 'justify-end': isFinished }, className)}
+    >
       {composeFinishStep()}
       <IconBox onClick={handleCloseClick}>
         <CloseIcon className="h-12 w-12 lg:w-17 lg:h-17 [&_path]:fill-black" />

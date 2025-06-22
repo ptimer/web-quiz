@@ -1,16 +1,38 @@
 import { useSelector } from 'react-redux'
 
 import { QUIZ_BASE_SCORE } from '@/common/constants'
-import { Button, QuizStats } from '@/components'
+import { Button, QuizForm, QuizStats } from '@/components'
 import { scoreSelector } from '@/store/features/quizSlice'
+import { useForm } from 'react-hook-form'
 
 interface Props {
   quizName: string
 }
 
+type FormData = {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+}
+
 export const QuizResult = ({ quizName }: Props) => {
   const score = useSelector(scoreSelector)
   const correctAnswersCount = score !== 0 ? score / QUIZ_BASE_SCORE : 0
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors }
+  } = useForm<FormData>()
+
+  const onSubmit = (data: FormData) => {
+    console.log('Form submitted:', data)
+  }
+
+  const isButtonDisabled =
+    !!errors.firstName || !!errors.lastName || !!errors.email || !!errors.phone
 
   return (
     <div className="flex flex-col items-center flex-1 px-20 lg:px-60">
@@ -26,12 +48,14 @@ export const QuizResult = ({ quizName }: Props) => {
         Results of {quizName}
       </h1>
 
-      <QuizStats score={score} correctAnswersCount={correctAnswersCount} />
+      <QuizStats score={score} correctAnswersCount={correctAnswersCount} className="mb-60" />
 
-      <div className="mb-147"></div>
+      <QuizForm className="mb-147" register={register} control={control} errors={errors} />
 
       <footer className="mt-auto flex justify-center w-full mb-58">
-        <Button>OKAY</Button>
+        <Button onClick={handleSubmit(onSubmit)} disabled={isButtonDisabled}>
+          OKAY
+        </Button>
       </footer>
     </div>
   )
