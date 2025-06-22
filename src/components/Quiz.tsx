@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { QuizQuestions, QuizHeader, QuizResult } from '@/components'
+import { QuizQuestionsScreen, QuizHeader, QuizResultScreen } from '@/components'
 import { isFinishedSelector } from '@/store/features/quizSlice'
 
 export const Quiz = ({ id, name }: Quiz) => {
@@ -9,7 +9,7 @@ export const Quiz = ({ id, name }: Quiz) => {
   return (
     <div className="min-h-screen flex flex-col w-full">
       <QuizHeader title={name} className="mt-40 mb-24 lg:mb-91 px-20 lg:px-60" />
-      {isFinished ? <QuizResult quizName={name} /> : <QuizQuestions quizId={id} />}
+      {isFinished ? <QuizResultScreen quizName={name} /> : <QuizQuestionsScreen quizId={id} />}
     </div>
   )
 }

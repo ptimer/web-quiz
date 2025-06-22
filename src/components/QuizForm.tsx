@@ -1,5 +1,6 @@
 import { cn } from '@/common/utils'
 import { Controller, type Control, type FieldErrors, type UseFormRegister } from 'react-hook-form'
+
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 type FormData = {
@@ -102,7 +103,7 @@ export const QuizForm = ({ className, register, control, errors }: Props) => (
           rules={{ required: 'Enter your phone number' }}
           render={({ field }) => (
             <PhoneInput
-              inputProps={{ id: 'phone' }} // ✅ Привязка к label
+              inputProps={{ id: 'phone' }}
               {...field}
               country={'ua'}
               inputClass="!bg-light !rounded-[0.5rem] !w-full !pl-50 !p-20 !text-typo-body-01 !leading-20 !border-2 !border-black !h-full"

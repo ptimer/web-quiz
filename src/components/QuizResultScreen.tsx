@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
 
 import { QUIZ_BASE_SCORE } from '@/common/constants'
-import { Button, QuizForm, QuizStats } from '@/components'
+import { Button, QuizCompletedScreen, QuizForm, QuizStats } from '@/components'
 import { scoreSelector } from '@/store/features/quizSlice'
 import { useForm } from 'react-hook-form'
+import { useState } from 'react'
 
 interface Props {
   quizName: string
@@ -16,8 +17,10 @@ type FormData = {
   phone: string
 }
 
-export const QuizResult = ({ quizName }: Props) => {
+export const QuizResultScreen = ({ quizName }: Props) => {
   const score = useSelector(scoreSelector)
+  const [isCompleted, setIsCompleted] = useState(false)
+
   const correctAnswersCount = score !== 0 ? score / QUIZ_BASE_SCORE : 0
 
   const {
@@ -29,10 +32,13 @@ export const QuizResult = ({ quizName }: Props) => {
 
   const onSubmit = (data: FormData) => {
     console.log('Form submitted:', data)
+    setIsCompleted(true)
   }
 
   const isButtonDisabled =
     !!errors.firstName || !!errors.lastName || !!errors.email || !!errors.phone
+
+  if (isCompleted) return <QuizCompletedScreen />
 
   return (
     <div className="flex flex-col items-center flex-1 px-20 lg:px-60">

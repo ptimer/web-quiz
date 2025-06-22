@@ -9,7 +9,7 @@ import {
 } from '@/store/features/apiSlice'
 import { increaseScore, setIsFinished } from '@/store/features/quizSlice'
 
-export const QuizQuestions = ({ quizId }: { quizId: string }) => {
+export const QuizQuestionsScreen = ({ quizId }: { quizId: string }) => {
   const dispatch = useDispatch()
 
   const {
